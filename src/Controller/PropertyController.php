@@ -5,7 +5,10 @@ namespace App\Controller;
 use App\Entity\Property;
 use App\Repository\PropertyRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -28,10 +31,18 @@ class PropertyController extends AbstractController
 
     /**
      * @Route("/biens", name="property.index", options={"utf8": true})
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
+        $properties = $paginator->paginate(
+            $this->repository->findAllVisibleQuery(),
+            $request->query->getInt('page', 1),
+            12
+        );
+
 //        $property = new Property();
 //        $property->setTitle('Mon premier bien')
 //            ->setPrice(200000)
@@ -58,7 +69,8 @@ class PropertyController extends AbstractController
 //        $property[0]->setSold(true);
 //        $this->em->flush();
         return $this->render('property/index.html.twig', [
-            'current_menu' => 'properties'
+            'current_menu' => 'properties',
+            'properties'   => $properties
         ]);
     }
 

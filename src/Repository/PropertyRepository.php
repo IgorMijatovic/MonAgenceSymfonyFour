@@ -21,13 +21,12 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Property[]
+     * @return \Doctrine\ORM\Query
      */
-    public function findAllVisible(): array
+    public function findAllVisibleQuery(): \Doctrine\ORM\Query
     {
         return $this->findVisibleQuery()
-            ->getQuery()
-            ->getResult();
+            ->getQuery();
     }
 
     /**
