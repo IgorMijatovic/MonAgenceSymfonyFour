@@ -1064,87 +1064,99 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="263" parent="243" name="PRIMARY">
+    <column id="263" parent="243" name="filename">
+      <Position>15</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="264" parent="243" name="updated_at">
+      <Position>16</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="265" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="264" parent="244" name="property_id">
+    <column id="266" parent="244" name="property_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="244" name="tag_id">
+    <column id="267" parent="244" name="tag_id">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="266" parent="244" name="IDX_C1B5E350549213EC">
+    <index id="268" parent="244" name="IDX_C1B5E350549213EC">
       <ColNames>property_id</ColNames>
     </index>
-    <index id="267" parent="244" name="IDX_C1B5E350BAD26311">
+    <index id="269" parent="244" name="IDX_C1B5E350BAD26311">
       <ColNames>tag_id</ColNames>
     </index>
-    <key id="268" parent="244" name="PRIMARY">
+    <key id="270" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>property_id
 tag_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="269" parent="244" name="FK_C1B5E350549213EC">
+    <foreign-key id="271" parent="244" name="FK_C1B5E350549213EC">
       <ColNames>property_id</ColNames>
       <RefSchemaName>maAgence</RefSchemaName>
       <RefTableName>property</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="270" parent="244" name="FK_C1B5E350BAD26311">
+    <foreign-key id="272" parent="244" name="FK_C1B5E350BAD26311">
       <ColNames>tag_id</ColNames>
       <RefSchemaName>maAgence</RefSchemaName>
       <RefTableName>tag</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="271" parent="245" name="id">
+    <column id="273" parent="245" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="245" name="name">
+    <column id="274" parent="245" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="273" parent="245" name="PRIMARY">
+    <key id="275" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="274" parent="246" name="id">
+    <column id="276" parent="246" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="246" name="username">
+    <column id="277" parent="246" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="246" name="password">
+    <column id="278" parent="246" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="277" parent="246" name="PRIMARY">
+    <key id="279" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
