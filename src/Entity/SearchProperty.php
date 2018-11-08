@@ -1,6 +1,7 @@
 <?php
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class SearchProperty
@@ -21,6 +22,16 @@ class SearchProperty
      * )
      */
     private $minSurface;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -57,4 +68,22 @@ class SearchProperty
         $this->minSurface = $minSurface;
         return $this;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTags(): ArrayCollection
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param ArrayCollection $tags
+     */
+    public function setTags(ArrayCollection $tags): void
+    {
+        $this->tags = $tags;
+    }
+
+
 }

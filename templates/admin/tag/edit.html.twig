@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}Gerer les tags{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h2>Editer le tag</h2>
+        {{ include('admin/tag/_form.html.twig', {form: form, button: 'Editer'}) }}
+    </div>
+
+{% endblock %}
+
+{% blocks stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+{% endblock %}
