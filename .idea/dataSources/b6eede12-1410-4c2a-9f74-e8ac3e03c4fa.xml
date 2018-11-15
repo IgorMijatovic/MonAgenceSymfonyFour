@@ -1067,13 +1067,11 @@
     <column id="263" parent="243" name="filename">
       <Position>15</Position>
       <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="264" parent="243" name="updated_at">
       <Position>16</Position>
       <DataType>datetime|0</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="265" parent="243" name="PRIMARY">
