@@ -28,6 +28,26 @@ class SearchProperty
      */
     private $tags;
 
+    /**
+     * @var float|null
+     */
+    private $lat;
+
+    /**
+     * @var float|null
+     */
+    private $lng;
+
+    /**
+     * @var integer|null
+     */
+    private $distance;
+
+    /**
+     * @var string|null
+     */
+    private $address;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -85,5 +105,76 @@ class SearchProperty
         $this->tags = $tags;
     }
 
+    /**
+     * @return float|null
+     */
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
 
+    /**
+     * @param float|null $lat
+     * @return SearchProperty
+     */
+    public function setLat(?float $lat): SearchProperty
+    {
+        $this->lat = $lat;
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    /**
+     * @param float|null $lng
+     * @return SearchProperty
+     */
+    public function setLng(?float $lng): SearchProperty
+    {
+        $this->lng = $lng;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getDistance(): ?int
+    {
+        return $this->distance;
+    }
+
+    /**
+     * @param int|null $distance
+     * @return SearchProperty
+     */
+    public function setDistance(?int $distance): SearchProperty
+    {
+        $this->distance = $distance;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param null|string $address
+     * @return SearchProperty
+     */
+    public function setAddress(?string $address): SearchProperty
+    {
+        $this->address = $address;
+        return $this;
+    }
+    
 }
