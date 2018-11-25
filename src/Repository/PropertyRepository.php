@@ -6,6 +6,7 @@ use App\Entity\Property;
 use App\Entity\SearchProperty;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -16,9 +17,15 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class PropertyRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    /**
+     * @var PaginatorInterface
+     */
+    private $paginator;
+
+    public function __construct(RegistryInterface $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Property::class);
+        $this->paginator = $paginator;
     }
 
     /**
@@ -42,7 +49,6 @@ class PropertyRepository extends ServiceEntityRepository
 
         if ($search->getLat() && $search->getLng() && $search->getDistance()) {
             $query = $query
-                ->select('p')
                 ->andWhere('(6353 * 2 * ASIN(SQRT( POWER(SIN((p.lat - :lat) *  pi()/180 / 2), 2) +COS(p.lat * pi()/180) * COS(:lat * pi()/180) * POWER(SIN((p.lng - :lng) * pi()/180 / 2), 2) ))) <= :distance')
                 ->setParameter('lng', $search->getLng())
                 ->setParameter('lat', $search->getLat())
@@ -78,6 +84,8 @@ class PropertyRepository extends ServiceEntityRepository
     private function findVisibleQuery(): QueryBuilder
     {
         return $this->createQueryBuilder('p')
+            /**->select('p', 'pics')
+            ->leftJoin('p.pictures', 'pics')**/
             ->where('p.sold = false');
     }
 

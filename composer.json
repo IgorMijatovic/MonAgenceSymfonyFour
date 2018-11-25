@@ -28,6 +28,7 @@
         "symfony/web-link": "*",
         "symfony/webpack-encore-bundle": "^1.0",
         "symfony/yaml": "*",
+        "twig/cache-extension": "^1.4@dev",
         "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
