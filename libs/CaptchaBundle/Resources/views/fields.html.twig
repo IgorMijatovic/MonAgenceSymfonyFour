@@ -1,0 +1,22 @@
+{% block captcha_submit_widget %}
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    <script>
+        function {{ id }}CaptchaSubmit(token) {
+            document.getElementById('contactForm').submit();
+            {#var elem = document.getElementById({{ id }});#}
+            {#while (elem.parentElement !== null) {#}
+                {#if (elem.tagName === 'FORM') {#}
+                    {#console.log('test');#}
+                    {#elem.submit();#}
+                    {#break;#}
+                {#}#}
+                {#elem = elem.parentElement;#}
+            {#}#}
+        }
+    </script>
+    {% set label = button %}
+    {% set attr = attr | merge({class: attr.class ~ ' g-recaptcha', 'data-sitekey':key, 'data-callback': id ~ 'CaptchaSubmit'}) %}
+    {% block submit_widget %}
+
+    {% endblock %}
+{% endblock %}

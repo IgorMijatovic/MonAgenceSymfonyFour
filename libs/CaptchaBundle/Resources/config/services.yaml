@@ -1,0 +1,17 @@
+services:
+    captcha.type:
+      class: Imij\CaptchaBundle\Type\CaptchaSubmitType
+      tags: ['form.type']
+      arguments:
+        $key: '%captcha.key%'
+    captcha.validator:
+      class: Imij\CaptchaBundle\Constraint\CaptchaValidator
+      tags: ['validator.constraint_validator']
+      autowire: true
+    ReCaptcha\ReCaptcha:
+      class: ReCaptcha\ReCaptcha
+      arguments:
+        $secret: '%captcha.secret%'
+        $requestMethod: '@Recaptcha\RequestMethod'
+    Recaptcha\RequestMethod: '@Recaptcha\RequestMethod\CurlPost'
+    Recaptcha\RequestMethod\CurlPost: ~

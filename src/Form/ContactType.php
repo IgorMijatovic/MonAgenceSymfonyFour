@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Contact;
+use Imij\CaptchaBundle\Type\CaptchaSubmitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -19,7 +20,13 @@ class ContactType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('phone', TextType::class)
             ->add('email', EmailType::class)
-            ->add('message', TextareaType::class);
+            ->add('message', TextareaType::class)
+            ->add('captcha', CaptchaSubmitType::class, [
+                'label' => 'Envoyez',
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
